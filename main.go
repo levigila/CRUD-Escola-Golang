@@ -57,6 +57,22 @@ func main() {
 
 	fmt.Println("Conexão bem-sucedida ao banco de dados!")
 
+	// Criando tabela "alunos"
+    _, err = db.Exec(`
+        CREATE TABLE IF NOT EXISTS alunos (
+            id SERIAL PRIMARY KEY,
+            nome VARCHAR(100),
+            idade INT,
+            nomeProfessor VARCHAR(100),
+            notaPrimeiroSemestre FLOAT,
+            notaSegundoSemestre FLOAT,
+            numeroSala INT
+        );
+    `)
+    if err != nil {
+        log.Fatal(err)
+    }
+
 	// Iniciando o servidor Gin
 	r := gin.Default()
 
