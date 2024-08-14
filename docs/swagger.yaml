@@ -17,7 +17,7 @@ definitions:
       numeroSala:
         type: integer
     type: object
-host: localhost:8080
+host: golangschoolcrud.onrender.com
 info:
   contact: {}
   description: API para gerenciar alunos em uma escola.
@@ -115,4 +115,6 @@ paths:
       summary: Atualiza um aluno existente
       tags:
       - alunos
+schemes:
+- https
 swagger: "2.0"
