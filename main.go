@@ -20,8 +20,9 @@ import (
 // @version 1.0
 // @description API para gerenciar alunos em uma escola.
 
-// @host localhost:8080
+// @host golangschoolcrud.onrender.com
 // @BasePath /
+// @schemes https
 
 func main() {
 
