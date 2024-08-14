@@ -24,10 +24,9 @@ import (
 
 func main() {
 
-	// Carregando o arquivo .env
-    err := godotenv.Load()
-    if err != nil {
-        log.Fatal("Erro ao carregar o arquivo .env")
+	// Carrega o arquivo .env, se ele existir
+    if err := godotenv.Load(); err != nil {
+        log.Println("Arquivo .env não encontrado, carregando variáveis de ambiente padrão")
     }
 
 	// Usando variáveis para armazenar os valores das variáveis de ambiente
