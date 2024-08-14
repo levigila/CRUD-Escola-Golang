@@ -10,6 +10,7 @@ import (
 
 	"github.com/joho/godotenv"
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 	_ "github.com/lib/pq"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -57,6 +58,9 @@ func main() {
 
 	// Iniciando o servidor Gin
 	r := gin.Default()
+
+	// Configuração básica de CORS
+    r.Use(cors.Default())
 
 	// Documentação Swagger
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
