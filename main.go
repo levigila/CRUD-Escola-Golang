@@ -64,8 +64,8 @@ func main() {
         nome VARCHAR(100),
         idade INT,
         nomeProfessor VARCHAR(100),
-        nota_primeiro_semestre NUMBER,
-        nota_segundo_semestre NUMBER,
+        nota_primeiro_semestre FLOAT,
+        nota_segundo_semestre FLOAT,
         numeroSala INT
         );
     `)

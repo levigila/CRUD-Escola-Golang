@@ -1,18 +1,19 @@
 package models
 
 import (
-    "database/sql"
-    _ "github.com/lib/pq"
+	"database/sql"
+
+	_ "github.com/lib/pq"
 )
 
 type Aluno struct {
-    ID                   int
-    Nome                 string
-    Idade                int
-    NotaPrimeiroSemestre float64
-    NotaSegundoSemestre  float64
-    NomeProfessor        string
-    NumeroSala           int
+    id                   int
+    nome                 string
+    idade                int
+    nota_primeiro_semestre float64
+    nota_segundo_semestre  float64
+    nome_professor        string
+    numero_sala           int
 }
 
 // Função para buscar todos os alunos
@@ -27,7 +28,7 @@ func GetAlunos(db *sql.DB) ([]Aluno, error) {
 
     for rows.Next() {
         var aluno Aluno
-        err = rows.Scan(&aluno.ID, &aluno.Nome, &aluno.Idade, &aluno.NotaPrimeiroSemestre, &aluno.NotaSegundoSemestre, &aluno.NomeProfessor, &aluno.NumeroSala)
+        err = rows.Scan(&aluno.id, &aluno.nome, &aluno.idade, &aluno.nota_primeiro_semestre, &aluno.nota_segundo_semestre, &aluno.nome_professor, &aluno.numero_sala)
         if err != nil {
             return nil, err
         }
@@ -42,7 +43,7 @@ func CreateAluno(db *sql.DB, aluno Aluno) error {
     sqlStatement := `
     INSERT INTO alunos (nome, idade, nota_primeiro_semestre, nota_segundo_semestre, nome_professor, numero_sala)
     VALUES ($1, $2, $3, $4, $5, $6)`
-    _, err := db.Exec(sqlStatement, aluno.Nome, aluno.Idade, aluno.NotaPrimeiroSemestre, aluno.NotaSegundoSemestre, aluno.NomeProfessor, aluno.NumeroSala)
+    _, err := db.Exec(sqlStatement, aluno.nome, aluno.idade, aluno.nota_primeiro_semestre, aluno.nota_segundo_semestre, aluno.nome_professor, aluno.numero_sala)
     if err != nil {
         return err
     }
@@ -55,7 +56,7 @@ func UpdateAluno(db *sql.DB, id string, aluno Aluno) error {
     UPDATE alunos
     SET nome = $2, idade = $3, nota_primeiro_semestre = $4, nota_segundo_semestre = $5, nome_professor = $6, numero_sala = $7
     WHERE id = $1`
-    _, err := db.Exec(sqlStatement, id, aluno.Nome, aluno.Idade, aluno.NotaPrimeiroSemestre, aluno.NotaSegundoSemestre, aluno.NomeProfessor, aluno.NumeroSala)
+    _, err := db.Exec(sqlStatement, id, aluno.nome, aluno.idade, aluno.nota_primeiro_semestre, aluno.nota_segundo_semestre, aluno.nome_professor, aluno.numero_sala)
     if err != nil {
         return err
     }

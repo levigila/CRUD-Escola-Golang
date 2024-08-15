@@ -167,16 +167,16 @@ const docTemplate = `{
                 "nome": {
                     "type": "string"
                 },
-                "nomeProfessor": {
+                "nome_professor": {
                     "type": "string"
                 },
-                "notaPrimeiroSemestre": {
-                    "type": "number"
+                "nota_primeiro_semestre": {
+                    "type": "float"
                 },
-                "notaSegundoSemestre": {
-                    "type": "number"
+                "nota_segundo_semestre": {
+                    "type": "float"
                 },
-                "numeroSala": {
+                "numero_sala": {
                     "type": "integer"
                 }
             }
