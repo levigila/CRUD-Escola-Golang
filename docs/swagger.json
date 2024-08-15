@@ -152,34 +152,31 @@
         }
     },
     "definitions": {
-    "models.Aluno": {
-        "type": "object",
-        "properties": {
-            "id": {
-                "type": "integer"
-            },
-            "nome": {
-                "type": "string"
-            },
-            "idade": {
-                "type": "integer"
-            },
-            "nota_primeiro_semestre": {
-                "type": "number",
-                "format": "float"
-            },
-            "nota_segundo_semestre": {
-                "type": "number",
-                "format": "float"
-            },
-            "nome_professor": {
-                "type": "string"
-            },
-            "numero_sala": {
-                "type": "integer"
+        "models.Aluno": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "idade": {
+                    "type": "integer"
+                },
+                "nome": {
+                    "type": "string"
+                },
+                "nome_professor": {
+                    "type": "string"
+                },
+                "nota_primeiro_semestre": {
+                    "type": "number"
+                },
+                "nota_segundo_semestre": {
+                    "type": "number"
+                },
+                "numero_sala": {
+                    "type": "integer"
+                }
             }
         }
     }
-}
-
 }
