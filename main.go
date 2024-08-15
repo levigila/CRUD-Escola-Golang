@@ -8,9 +8,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/joho/godotenv"
-	"github.com/gin-gonic/gin"
 	"github.com/gin-contrib/cors"
+	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
@@ -27,9 +27,9 @@ import (
 func main() {
 
 	// Carrega o arquivo .env, se ele existir
-    if err := godotenv.Load(); err != nil {
-        log.Println("Arquivo .env não encontrado, carregando variáveis de ambiente padrão")
-    }
+	if err := godotenv.Load(); err != nil {
+		log.Println("Arquivo .env não encontrado, carregando variáveis de ambiente padrão")
+	}
 
 	// Usando variáveis para armazenar os valores das variáveis de ambiente
 	host := os.Getenv("DB_HOST")
@@ -58,26 +58,26 @@ func main() {
 	fmt.Println("Conexão bem-sucedida ao banco de dados!")
 
 	// Criando tabela "alunos"
-    _, err = db.Exec(`
+	_, err = db.Exec(`
         CREATE TABLE IF NOT EXISTS alunos (
         id SERIAL PRIMARY KEY,
-        nome VARCHAR(100),
-        idade INT,
-        nomeProfessor VARCHAR(100),
-        nota_primeiro_semestre FLOAT,
-        nota_segundo_semestre FLOAT,
-        numeroSala INT
+    	nome VARCHAR(100),
+    	idade INT,
+    	nome_professor VARCHAR(100),
+    	nota_primeiro_semestre FLOAT,
+    	nota_segundo_semestre FLOAT,
+    	numero_sala INT
         );
     `)
-    if err != nil {
-        log.Fatal(err)
-    }
+	if err != nil {
+		log.Fatal(err)
+	}
 
 	// Iniciando o servidor Gin
 	r := gin.Default()
 
 	// Configuração básica de CORS
-    r.Use(cors.Default())
+	r.Use(cors.Default())
 
 	// Documentação Swagger
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
