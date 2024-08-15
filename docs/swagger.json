@@ -152,8 +152,34 @@
         }
     },
     "definitions": {
-        "models.Aluno": {
-            "type": "object"
+    "models.Aluno": {
+        "type": "object",
+        "properties": {
+            "id": {
+                "type": "integer"
+            },
+            "nome": {
+                "type": "string"
+            },
+            "idade": {
+                "type": "integer"
+            },
+            "nota_primeiro_semestre": {
+                "type": "number",
+                "format": "float"
+            },
+            "nota_segundo_semestre": {
+                "type": "number",
+                "format": "float"
+            },
+            "nome_professor": {
+                "type": "string"
+            },
+            "numero_sala": {
+                "type": "integer"
+            }
         }
     }
+}
+
 }

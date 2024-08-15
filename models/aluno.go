@@ -7,13 +7,13 @@ import (
 )
 
 type Aluno struct {
-    id                   int
-    nome                 string
-    idade                int
-    nota_primeiro_semestre float64
-    nota_segundo_semestre  float64
-    nome_professor        string
-    numero_sala           int
+    ID                   int     `json:"id"`
+    Nome                 string  `json:"nome"`
+    Idade                int     `json:"idade"`
+    NotaPrimeiroSemestre float64 `json:"nota_primeiro_semestre"`
+    NotaSegundoSemestre  float64 `json:"nota_segundo_semestre"`
+    NomeProfessor        string  `json:"nome_professor"`
+    NumeroSala           int     `json:"numero_sala"`
 }
 
 // Função para buscar todos os alunos
@@ -28,7 +28,7 @@ func GetAlunos(db *sql.DB) ([]Aluno, error) {
 
     for rows.Next() {
         var aluno Aluno
-        err = rows.Scan(&aluno.id, &aluno.nome, &aluno.idade, &aluno.nota_primeiro_semestre, &aluno.nota_segundo_semestre, &aluno.nome_professor, &aluno.numero_sala)
+        err = rows.Scan(&aluno.ID, &aluno.Nome, &aluno.Idade, &aluno.NotaPrimeiroSemestre, &aluno.NotaSegundoSemestre, &aluno.NomeProfessor, &aluno.NumeroSala)
         if err != nil {
             return nil, err
         }
@@ -43,7 +43,7 @@ func CreateAluno(db *sql.DB, aluno Aluno) error {
     sqlStatement := `
     INSERT INTO alunos (nome, idade, nota_primeiro_semestre, nota_segundo_semestre, nome_professor, numero_sala)
     VALUES ($1, $2, $3, $4, $5, $6)`
-    _, err := db.Exec(sqlStatement, aluno.nome, aluno.idade, aluno.nota_primeiro_semestre, aluno.nota_segundo_semestre, aluno.nome_professor, aluno.numero_sala)
+    _, err := db.Exec(sqlStatement, aluno.Nome, aluno.Idade, aluno.NotaPrimeiroSemestre, aluno.NotaSegundoSemestre, aluno.NomeProfessor, aluno.NumeroSala)
     if err != nil {
         return err
     }
@@ -56,7 +56,7 @@ func UpdateAluno(db *sql.DB, id string, aluno Aluno) error {
     UPDATE alunos
     SET nome = $2, idade = $3, nota_primeiro_semestre = $4, nota_segundo_semestre = $5, nome_professor = $6, numero_sala = $7
     WHERE id = $1`
-    _, err := db.Exec(sqlStatement, id, aluno.nome, aluno.idade, aluno.nota_primeiro_semestre, aluno.nota_segundo_semestre, aluno.nome_professor, aluno.numero_sala)
+    _, err := db.Exec(sqlStatement, id, aluno.Nome, aluno.Idade, aluno.NotaPrimeiroSemestre, aluno.NotaSegundoSemestre, aluno.NomeProfessor, aluno.NumeroSala)
     if err != nil {
         return err
     }
