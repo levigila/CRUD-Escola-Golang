@@ -156,30 +156,7 @@ const docTemplate = `{
     },
     "definitions": {
         "models.Aluno": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "integer"
-                },
-                "idade": {
-                    "type": "integer"
-                },
-                "nome": {
-                    "type": "string"
-                },
-                "nome_professor": {
-                    "type": "string"
-                },
-                "nota_primeiro_semestre": {
-                    "type": "float"
-                },
-                "nota_segundo_semestre": {
-                    "type": "float"
-                },
-                "numero_sala": {
-                    "type": "integer"
-                }
-            }
+            "type": "object"
         }
     }
 }`
