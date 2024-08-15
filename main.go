@@ -60,13 +60,13 @@ func main() {
 	// Criando tabela "alunos"
     _, err = db.Exec(`
         CREATE TABLE IF NOT EXISTS alunos (
-            id SERIAL PRIMARY KEY,
-            nome VARCHAR(100),
-            idade INT,
-            nomeProfessor VARCHAR(100),
-            notaPrimeiroSemestre FLOAT,
-            notaSegundoSemestre FLOAT,
-            numeroSala INT
+        id SERIAL PRIMARY KEY,
+        nome VARCHAR(100),
+        idade INT,
+        nomeProfessor VARCHAR(100),
+        notaPrimeiroSemestre NUMERIC,
+        notaSegundoSemestre NUMERIC,
+        numeroSala INT
         );
     `)
     if err != nil {
